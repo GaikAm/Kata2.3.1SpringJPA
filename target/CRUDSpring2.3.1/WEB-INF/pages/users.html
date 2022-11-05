@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+
+<div>
+  <form action="add" method="get">
+    <input type="text" name="name" placeholder="Имя">
+    <input type="text" name="lastName" placeholder="Фамилия">
+    <input type="text" name="email" placeholder="Email">
+    <input type="submit" value="add"></form>
+  </form>
+
+  <form action="update" method="get">
+    <input type="number" name="id" placeholder="ID изменяемого пользователя">
+    <input type="text" name="name" placeholder="Имя">
+    <input type="text" name="lastName" placeholder="Фамилия">
+    <input type="text" name="email" placeholder="Email">
+    <input type="submit" value="update"></form>
+  </form>
+
+  <form action="delete" method="get">
+    <input type="number" name="id" placeholder="ID пользователя">
+    <input type="submit" value="delete"></form>
+</div>
+
+<div>
+  <table class="table table-dark table-striped">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">FirstName</th>
+      <th scope="col">LastName</th>
+      <th scope="col">Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user, Stat : ${userList}">
+      <td th:text="${user.getId()}">
+      <td th:text="${user.getFirstName()}">
+      <td th:text="${user.getLastName()}">
+      <td th:text="${user.getEmail()}">
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
